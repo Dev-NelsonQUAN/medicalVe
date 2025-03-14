@@ -4,8 +4,8 @@ import { FaSearch } from 'react-icons/fa'
 
 const DashboardHeader = () => {
     return (
-        <div className='bg-white w-full px-6 py-6 relative flex items-center'>
-            <FaSearch  color='grey' className='absolute top-9 left-10'/>
+        <div className='bg-white w-335 py-6 flex justify-between px-8 shadow-2xl sticky'>
+            <FaSearch  color='grey' className='absolute top-10 left-10'/>
             <input className='w-150  outline-none border-1 boreder-gray-600 rounded-[5px] py-2 pl-10' type="text" />
 
             <div>

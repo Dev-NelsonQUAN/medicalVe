@@ -7,18 +7,23 @@ import * as Yup from 'yup';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import signupSvg from '../../assets/doctorvector.png'
+import { FaEye } from 'react-icons/fa6';
+import { FaEyeSlash } from 'react-icons/fa';
+import Spinner from '../../ui/Spinner';
 
 const SignUp = () => {
     const Nav = useNavigate();
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const validationSchema = Yup.object().shape({
         fullname: Yup.string().required('Fullname is required'),
         email: Yup.string().email('Invalid email address').required('Email is required'),
-        password: Yup.string().required('Password is required').min(6, 'Password must be at least 6 characters').matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-            .matches(/[a-z]]/, 'Password must contain at least one lowercase letter')
+        password: Yup.string().required('Password is required').min(6, 'Password must be at least 6 characters')
+        .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+            .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
             .matches(/\d/, 'Password must contain at least one number')
-            .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must contain atleast one spaecial character"),
+            .matches(/[!@#$%^&*(),.?":{}|<>]/, "Password must contain at least one special character"),
         confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match ').required('Confirm Password is reuired')
     })
 
@@ -26,8 +31,9 @@ const SignUp = () => {
         resolver: yupResolver(validationSchema)
     })
 
-    const onSubmit = async(data) => {
+    const onSubmit = async (data) => {
         setLoading(true)
+        console.log('Form submitted with data:', data)
         try {
             await new Promise((resolve) => setTimeout(resolve, 1000))
             toast.success("Successfully Signed up")
@@ -42,17 +48,20 @@ const SignUp = () => {
         }
     }
 
+    const handleShowPassword = () => {
+        setShowPassword((prev) => !prev)
+    }
 
     return (
         <div className='flex lg:h-[100vh]'>
             <div className='bg-blue-600 w-[100%] 
             flex p-2
             max-[769px]:hidden flex-col'>
-                    <h1 className='text-white font-bold mt-2 ml-10'>Medicalve</h1>
+                <h1 className='text-white font-bold mt-2 ml-10'>MedGet</h1>
                 <div className='flex justify-center mt-25'>
                     <img
-                    className='transform scale-x-[-1]\'
-                    src={signupSvg} alt="Sign Up SVG" />
+                        className='transform scale-x-[-1]'
+                        src={signupSvg} alt="Sign Up SVG" />
                 </div>
             </div>
 
@@ -106,7 +115,7 @@ const SignUp = () => {
                         {errors.email && <div className='text-sm text-red-500'> {errors.email.message} </div>}
                     </div>
 
-                    <div className='mt-4 mb-4'>
+                    <div className='mt-4 mb-4 '>
                         <Controller
                             name='password'
                             control={control}
@@ -116,16 +125,28 @@ const SignUp = () => {
                                     placeholder="********"
                                     labelText='Password'
                                     htmlFor='Password'
-                                    type='password'
+                                    type={showPassword ? 'text' : 'password'}
                                     rounded='rounded-[5px]'
                                     w='w-full'
                                     p='p-2.5'
+                                    pl='20'
                                     outline='outline-blue-600'
                                     border='border-1'
                                     borderCol='border-gray-600'
+                                    icon={
+                                        showPassword ? (
+                                            <FaEye
+                                                onClick={handleShowPassword}
+                                            />
+                                        ) : (
+                                            <FaEyeSlash onClick={handleShowPassword} />
+                                        )
+                                    }
                                 />
+
                             )}
                         />
+
                         {errors.password && <div className='text-red-500 text-sm'> {errors.password.message} </div>}
                     </div>
 
@@ -139,13 +160,23 @@ const SignUp = () => {
                                     placeholder="**********"
                                     labelText='Confirm Password'
                                     htmlFor='Confirm Password'
-                                    type='password'
+                                    type={showPassword ? 'text' : 'password'}
                                     rounded='rounded-[5px]'
                                     w='w-full'
                                     p='p-2.5'
                                     outline='outline-blue-600'
                                     border='border-1'
                                     borderCol='border-gray-600'
+                                    icon= {
+                                        showPassword ? (
+                                            <FaEye 
+                                        onClick={handleShowPassword}/>
+                                        ) : (
+                                            <FaEyeSlash 
+                                            onClick={handleShowPassword}
+                                            />
+                                        )
+                                    }
                                 />
                             )}
                         />
@@ -155,7 +186,7 @@ const SignUp = () => {
 
                     <Btn
                         type='submit'
-                        btnText={loading ? "Creating account..." : "Create Account"}
+                        btnText={loading ? <><Spinner size='1.5em' color='white' borderWidth='0.3em' /></> : "Create Account"}
                         bg='bg-blue-600'
                         color='text-white'
                         px='lg:px-35 max-[576px]:px-21'
@@ -164,7 +195,7 @@ const SignUp = () => {
                         disabled={loading}
                     // bg='bg-primary'
                     />
-                    <p className='flex justify-self-center mt-4 text-gray-600'> Already have an account? <span className='pl-1 text-blue-600 font-bold cursor-pointer underline' onClick={() => Nav('/login')}>Login</span> </p>
+                    <p className='flex justify-self-center mt-4 text-gray-600'> Already have an account? <span className='pl-1 text-blue-600 font-bold cursor-pointer hover:underline' onClick={() => Nav('/login')}>Login</span> </p>
                 </form>
             </div>
         </div>
