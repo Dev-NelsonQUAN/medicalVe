@@ -18,8 +18,10 @@ import aboutImg from "../../assets/2650.jpg";
 import missionPht1 from "../../assets/433.jpg";
 import missionPht2 from "../../assets/433.jpg";
 import missionPht3 from "../../assets/43715.jpg";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const Nav = useNavigate()
   const [navBg, setNavBg] = useState("bg-blue-700 text-white");
   const [btnStyle, setBtnStyle] = useState("bg-white text-blue-500 hover:bg-blue-500 hover:text-white border-none");
 
@@ -53,7 +55,9 @@ const LandingPage = () => {
           <button onClick={() => scrollToSection("blogs")} className="hover:text-blue-500">Blogs</button>
           <button onClick={() => scrollToSection("contact")} className="hover:text-blue-500">Contact</button>
         </div>
-        <CTAButton text="Sign Up" className={btnStyle} />
+        <CTAButton 
+          onClick={() => Nav('/selection')}
+        text="Sign Up" className={btnStyle} />
       </nav>
 
       <section id="hero" className="bg-blue-700 text-white text-center py-24 px-4 mt-16">
@@ -126,6 +130,7 @@ const LandingPage = () => {
         <h2 className="text-2xl font-bold mb-4">Join MedGet Today!</h2>
         <CTAButton
           text="Sign Up"
+          OnClick={() => Nav('/selection')}
           className="bg-white text-blue-700 hover:bg-gray-200"
         />
       </section>
