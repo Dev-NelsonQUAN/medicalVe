@@ -9,6 +9,7 @@ import { Controller, useForm } from 'react-hook-form'
 import loginSvg from '../../assets/doctorvector.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
 import Spinner from '../../ui/Spinner'
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
@@ -29,12 +30,24 @@ const Login = () => {
         setLoading(true)
         try {
             await new Promise((resolve) => setTimeout(resolve, 1000))
-            toast.success("Login Successful")
+            // toast.success("Login Successful")
+            Swal.fire({
+                title: 'Login Successful!',
+                text: 'Welcome back!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
             console.log(data)
-            Nav('/adminDash')
+            Nav('/userDashboard/home')
         }
         catch (err) {
-            toast.error('Login failed, Please try again')
+            // toast.error('Login failed, Please try again')
+            Swal.fire({
+                title: 'Login Failed!',
+                text: 'Invalid username or password.',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
         }
         finally {
             setLoading(false)
@@ -104,7 +117,7 @@ const Login = () => {
                                     border='border-1'
                                     borderCol='border-gray-600'
                                     aria-label='Password'
-                                                     icon={
+                                    icon={
                                         showPassword ? (
                                             <FaEye
                                                 onClick={handleShowPassword} />
@@ -126,7 +139,7 @@ const Login = () => {
 
                     <Btn
                         type='submit'
-                        btnText={loading ? <><Spinner size='1.5em'  color='white' borderWidth='0.3em'/></> : "Login"}
+                        btnText={loading ? <><Spinner size='1.5em' color='white' borderWidth='0.3em' /></> : "Login"}
                         bg='bg-blue-600'
                         color='text-white'
                         px='lg:px-45 max-[576px]:px-30'
@@ -138,7 +151,7 @@ const Login = () => {
 
                     <p className='flex justify-self-center mt-4 text-gray-600'> Dont' have an account? <span className='pl-1 
                     text-blue-600 font-bold cursor-pointer hover:underline'
-                        onClick={() => Nav("/")}> Login </span> </p>
+                        onClick={() => Nav("/")}> Sign Up </span> </p>
                 </form>
             </div>
         </div>

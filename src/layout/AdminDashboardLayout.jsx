@@ -10,12 +10,12 @@ const AdminDashboard = () => {
         <SideBar />
       </aside>
 
-      <div className='bg-orange-400'>
+      <div className='bg-gray-300'>
         <div>
           <DashboardHeader />
         </div>
 
-        <div className='bg-orange-500 ml-50 mt-40'>
+        <div className='bg-gray-500 m-6'>
           <Outlet />
         </div> 
       </div>

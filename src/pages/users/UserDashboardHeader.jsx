@@ -2,7 +2,7 @@ import React from 'react'
 import { CgProfile } from 'react-icons/cg'
 import { FaSearch } from 'react-icons/fa'
 
-const DashboardHeader = () => {
+const UserDashboardHeader = () => {
     return (
         <div className='bg-white w-335 py-6 flex justify-between px-8 shadow-2xl sticky'>
             <FaSearch color='grey' className='absolute top-10 left-10' />
@@ -14,8 +14,8 @@ const DashboardHeader = () => {
                 </div>
             </div>
         </div>
-         
+
     )
 }
 
-export default DashboardHeader
+export default UserDashboardHeader
