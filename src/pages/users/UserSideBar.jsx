@@ -9,6 +9,7 @@ import {
     FaClipboardList,
     FaStore,
 } from 'react-icons/fa';
+import { GiMedicines } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
 const UserSideBar = () => {
@@ -19,14 +20,13 @@ const UserSideBar = () => {
             link: '/userDashboard/home',
         },
         {
-            title: 'Users',
-            icon: <FaUsers />,
-            link: '/userDashboard/users',
-        },
-        {
             title: 'Pharmacies',
             icon: <FaStore />,
             link: '/userDashboard/pharmacies',
+        }, {
+            title: 'Medicines',
+            icon: <GiMedicines />,
+            link: '/userDashboard/users',
         },
         {
             title: 'Reports',
