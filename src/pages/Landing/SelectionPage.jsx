@@ -30,7 +30,7 @@ const SignInOptions = () => {
             Sign Up as User
           </button>
           <button
-            onClick={() => navigate('/pharmacy-signup')}
+            onClick={() => navigate('/pharmacy-sign-up')}
             className="w-64 py-2 px-4 bg-white border text-blue-500 rounded-lg shadow-md"
           >
             Sign Up as Pharmacy
