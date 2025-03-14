@@ -5,17 +5,19 @@ import { Outlet } from 'react-router-dom'
 
 const AdminDashboard = () => {
   return (
-    <div className='bg-amber-100 flex h-[100vh]'>
+    <div className='bg-white flex h-[100vh]'>
       <aside>
         <SideBar />
       </aside>
 
-      <div>
-        <DashboardHeader />
-      </div>
+      <div className='bg-gray-300'>
+        <div>
+          <DashboardHeader />
+        </div>
 
-      <div >
-        <Outlet />
+        <div className='bg-gray-500 m-6'>
+          <Outlet />
+        </div> 
       </div>
     </div>
   )
