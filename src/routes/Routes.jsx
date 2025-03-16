@@ -12,6 +12,7 @@ import LandingPage from "../pages/Landing/LandingPage"
 import SelectionPage from "../pages/Landing/SelectionPage"
 import PharmSignUp from '../pages/auth/PharmSignUp'
 import CheckEmail from '../pages/auth/CheckEmail'
+import ContactPage from '../pages/Landing/ContactPage'
 
 const router = createHashRouter([
     {
@@ -21,6 +22,10 @@ const router = createHashRouter([
     {
         path: "/selection",
         element: <SelectionPage />
+    },
+    {
+        path: "/contact",
+        element: <ContactPage/>
     },
     {
         path: "/sign-up",
