@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import Btn from '../../ui/Btn'
 import Input from '../../ui/Input'
@@ -30,7 +29,6 @@ const Login = () => {
         setLoading(true)
         try {
             await new Promise((resolve) => setTimeout(resolve, 1000))
-            // toast.success("Login Successful")
             Swal.fire({
                 title: 'Login Successful!',
                 text: 'Welcome back!',
@@ -41,7 +39,6 @@ const Login = () => {
             Nav('/userDashboard/home')
         }
         catch (err) {
-            // toast.error('Login failed, Please try again')
             Swal.fire({
                 title: 'Login Failed!',
                 text: 'Invalid username or password.',
@@ -72,7 +69,7 @@ const Login = () => {
             <div className='bg-white w-[100%] h-[100vh] 
             flex justify-center items-center max-[576px]:px-10
             '>
-                <form className='shadow-2xl lg:p-[60px] max-[769px]:p-[40px] max-[576px]:p-[25px] rounded-[5px]' onSubmit={handleSubmit(onSubmit)}>
+                <form className='shadow-2xl lg:p-[60px] max-[769px]:p-[40px] max-[576px]:p-[25px] max-[321px]:p-[20px] rounded-[5px] ' onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='font-bold lg:text-[40px] max-[769px]:text-[35px] max-[576px]:text-[25px] flex justify-self-center
                     '> Login account </h1>
                     <div className='mt-4 mb-4'>
@@ -133,7 +130,7 @@ const Login = () => {
                         {errors.password && <div className='text-red-500 text-sm'> {errors.password.message} </div>}
                     </div>
                     <p className='text-blue-600 hover:underline font-bold
-                    cursor-pointer justify-self-end
+                    cursor-pointer justify-self-end max-[576px]:text-[12px]
                     '>Forgot password?</p>
 
 
@@ -142,14 +139,16 @@ const Login = () => {
                         btnText={loading ? <><Spinner size='1.5em' color='white' borderWidth='0.3em' /></> : "Login"}
                         bg='bg-blue-600'
                         color='text-white'
-                        px='lg:px-45 max-[576px]:px-30'
+                        px='lg:px-45 max-[576px]:px-30 max-[321px]:px-25'
+                        fontWeight='font-bold'
                         py='py-2.5'
                         mt='mt-8'
+                        hoverBg='hover:bg-blue-700'
                         disabled={loading}
                     // bg='bg-primary'
                     />
 
-                    <p className='flex justify-self-center mt-4 text-gray-600'> Dont' have an account? <span className='pl-1 
+                    <p className='flex justify-self-center mt-4 text-gray-600 max-[576px]:text-[12px]'> Dont' have an account? <span className='pl-1 
                     text-blue-600 font-bold cursor-pointer hover:underline'
                         onClick={() => Nav("/")}> Sign Up </span> </p>
                 </form>
