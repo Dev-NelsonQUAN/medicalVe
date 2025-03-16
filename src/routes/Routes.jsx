@@ -8,15 +8,40 @@ import Users from '../pages/admin/Users';
 import Pharmacies from '../pages/admin/Pharmacies';
 import UserLayout from '../pages/users'
 import UserDashboardHome from '../pages/users/UserDashboardHome'
+import LandingPage from "../pages/Landing/LandingPage"
+import SelectionPage from "../pages/Landing/SelectionPage"
+import PharmSignUp from '../pages/auth/PharmSignUp'
+import CheckEmail from '../pages/auth/CheckEmail'
+import ContactPage from '../pages/Landing/ContactPage'
 
 const router = createHashRouter([
     {
         path: "/",
+        element: <LandingPage />
+    },
+    {
+        path: "/selection",
+        element: <SelectionPage />
+    },
+    {
+        path: "/contact",
+        element: <ContactPage/>
+    },
+    {
+        path: "/sign-up",
         element: <SignUp />
+    },
+    {
+        path: "/check-email",
+        element: <CheckEmail />
     },
     {
         path: "/login",
         element: <Login />
+    },
+    {
+        path: '/pharmacy-sign-up',
+        element: <PharmSignUp />
     },
     {
         path: "/adminDash",
@@ -27,12 +52,12 @@ const router = createHashRouter([
                 element: <DashboardHome />
             },
             {
-              path: 'users',
-              element: <Users/>
+                path: 'users',
+                element: <Users />
             },
             {
-              path: 'pharmacies',
-              element: <Pharmacies/>
+                path: 'pharmacies',
+                element: <Pharmacies />
             },
         ]
     },
