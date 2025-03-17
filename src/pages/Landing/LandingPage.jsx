@@ -19,7 +19,7 @@ import missionPht1 from "../../assets/43715.jpg";
 import missionPht2 from "../../assets/433.jpg";
 import missionPht3 from "../../assets/43715.jpg";
 import { useNavigate } from "react-router-dom";
-import heroimg from "../../assets/2650.jpg";
+import heroimg from "../../assets/2650-removebg-preview.png";
 
 const LandingPage = () => {
   const Nav = useNavigate();
@@ -58,31 +58,31 @@ const LandingPage = () => {
         <div className="hidden md:flex gap-6">
           <button
             onClick={() => scrollToSection("hero")}
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 hover:cursor-pointer"
           >
             Home
           </button>
           <button
             onClick={() => scrollToSection("about")}
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 hover:cursor-pointer"
           >
             About
           </button>
           <button
             onClick={() => scrollToSection("mission")}
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 hover:cursor-pointer"
           >
             Mission
           </button>
           <button
             onClick={() => scrollToSection("services")}
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 hover:cursor-pointer"
           >
             Services
           </button>
           <button
             onClick={() => scrollToSection("blogs")}
-            className="hover:text-blue-500"
+            className="hover:text-blue-500 hover:cursor-pointer"
           >
             Blogs
           </button>
@@ -102,12 +102,11 @@ const LandingPage = () => {
 
       <section
         id="hero"
-        className="bg-blue-700 text-white py-24 px-4 mt-16 flex flex-col md:flex-row items-center justify-between"
+        className=" text-blue-600 py-28 px-4 mt-16 flex flex-col md:flex-row items-center justify-between "
       >
-        {/* Text Content */}
         <div className="text-center md:text-left md:w-1/2">
           <h1 className="text-5xl font-bold mb-4 max-lg:text-4xl">
-            Find & Manage Pharmacy Stock Easily
+            Find & Manage <br /> Pharmacy Stock  Easily
           </h1>
           <p className="text-lg mb-6 max-lg:text-[16px]">
             Locate nearby pharmacies and keep stock updated seamlessly.
@@ -116,12 +115,12 @@ const LandingPage = () => {
             <CTAButton
               text="Get Started"
               onClick={() => Nav("/selection")}
-              className="border border-white text-white hover:bg-white hover:text-blue-700"
+              className="border border-blue-700 text-blue-700 hover:bg-gray-200 transition duration-300"
             />
           </div>
         </div>
 
-        <div className="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
+        <div className="md:w-1/2 flex h-[400px] justify-center md:justify-end mt-8 md:mt-0">
           <img
             src={heroimg}
             alt="Pharmacy Illustration"
@@ -136,14 +135,14 @@ const LandingPage = () => {
             <img
               src={aboutImg}
               alt="About MedicalVe"
-              className="w-full rounded-lg shadow-lg"
+              className="w-full rounded-lg"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="text-3xl font-bold mb-4 text-blue-700">
               About MedGet
             </h2>
-            <p className="text-lg text-gray-800 leading-relaxed">
+            <p className="text-lg max-lg:text-[15px] max-md:text-[14px] text-gray-800 leading-relaxed">
               MedGet is a pharmacy locator and stock management system that
               helps users find the nearest pharmacies and allows pharmacies to
               efficiently manage their stock.
@@ -198,7 +197,7 @@ const LandingPage = () => {
           <h3 className="text-2xl font-bold text-blue-700 mb-4">
             Meet the Team
           </h3>
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 max-lg:text-[15px] max-md:text-[14px]">
             MedGet is founded by two passionate individuals dedicated to
             transforming pharmacy accessibility and inventory management.
           </p>
@@ -242,12 +241,12 @@ const LandingPage = () => {
         <h2 className="text-3xl font-bold mb-6 text-blue-700">
           Need Assistance?
         </h2>
-        <p className="text-lg mb-6">
+        <p className="text-lg mb-6 max-lg:text-[15px] max-md:text-[14px]">
           We are here to help. Contact us anytime for support.
         </p>
         <div className="flex justify-center gap-4">
-          <FaPhoneAlt className="text-blue-700 text-4xl" />
-          <p className="text-xl font-semibold text-gray-900">
+          <FaPhoneAlt className="text-blue-700 text-4xl max-lg:text-[25px] max-md:text-[19px]" />
+          <p className="text-xl font-semibold text-gray-900 max-lg:text-[15px] max-md:text-[14px]">
             +234 814 868 9539 / +234 902 207 2067
           </p>
         </div>
