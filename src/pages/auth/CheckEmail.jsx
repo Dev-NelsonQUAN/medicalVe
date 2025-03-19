@@ -68,7 +68,7 @@ const CheckEmail = () => {
 
     return (
         <div className='flex lg:h-[100vh]'>
-            <div className='bg-blue-600 w-[100%] flex p-2 max-[769px]:hidden flex-col'>
+            {/* <div className='bg-blue-600 w-[100%] flex p-2 max-[769px]:hidden flex-col'>
                 <h1 className='text-white font-bold mt-2 ml-10'>MedGet</h1>
                 <div className='flex justify-center mt-25'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -76,7 +76,7 @@ const CheckEmail = () => {
                         <path d="M12 13l-8-5h16z"></path>
                     </svg>
                 </div>
-            </div>
+            </div> */}
 
             <div className='bg-white w-[100%] h-[100vh] flex justify-center items-center lg:px-10  max-[576px]:px-10 max-[321px]:px-5'>
                 <div className='shadow-2xl lg:px-[50px] lg:py-[40px] max-[769px]:p-[40px] max-[576px]:p-[25px] rounded-[5px]'>
@@ -93,7 +93,7 @@ const CheckEmail = () => {
 
                     <div className='mt-6 flex justify-self-center'>
                         <Btn
-                            type='submit'
+                            type='button'
                             btnText={resendLoading ? <><Spinner size='1.5em' color='white' borderWidth='0.3em' /></> : "Resend Verification Email"}
                             bg='bg-blue-600'
                             color='text-white'
@@ -102,7 +102,6 @@ const CheckEmail = () => {
                             py='py-2.5'
                             mt='mt-6'
                             hoverBg='hover:bg-blue-700'
-
                             disabled={resendLoading}
                             onClick={handleResendEmail}
                         />
