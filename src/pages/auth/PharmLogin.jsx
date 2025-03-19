@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import Btn from '../../ui/Btn'
 import Input from '../../ui/Input'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { Controller, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import loginSvg from '../../assets/doctorvector.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
 import Spinner from '../../ui/Spinner'
 import Swal from 'sweetalert2';
 
 
-const Login = () => {
+const PharmLogin = () => {
     const Nav = useNavigate()
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -54,7 +54,6 @@ const Login = () => {
     const handleShowPassword = () => {
         setShowPassword((prev) => !prev)
     }
-
     return (
         <div className='flex lg:h-[100vh]'>
             <div className='bg-blue-600 w-[100%] max-[769px]:hidden'>
@@ -67,11 +66,11 @@ const Login = () => {
             </div>
 
             <div className='bg-white w-[100%] h-[100vh] 
-            flex justify-center items-center max-[576px]:px-10
-            '>
+    flex justify-center items-center max-[576px]:px-10
+    '>
                 <form className='shadow-2xl lg:p-[60px] max-[769px]:p-[40px] max-[576px]:p-[25px] max-[321px]:p-[20px] rounded-[5px] ' onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='font-bold lg:text-[40px] max-[769px]:text-[35px] max-[576px]:text-[25px] flex justify-self-center
-                    '> Login account </h1>
+            '> Login account </h1>
                     <div className='mt-4 mb-4'>
                         <Controller
                             name='email'
@@ -130,8 +129,8 @@ const Login = () => {
                         {errors.password && <div className='text-red-500 text-sm'> {errors.password.message} </div>}
                     </div>
                     <p className='text-blue-600 hover:underline font-bold
-                    cursor-pointer justify-self-end max-[576px]:text-[12px]
-                    '>Forgot password?</p>
+            cursor-pointer justify-self-end max-[576px]:text-[12px]
+            '>Forgot password?</p>
 
 
                     <Btn
@@ -149,7 +148,7 @@ const Login = () => {
                     />
 
                     <p className='flex justify-self-center mt-4 text-gray-600 max-[576px]:text-[12px]'> Dont' have an account? <span className='pl-1 
-                    text-blue-600 font-bold cursor-pointer hover:underline'
+            text-blue-600 font-bold cursor-pointer hover:underline'
                         onClick={() => Nav("/sign-up")}> Sign Up </span> </p>
                 </form>
             </div>
@@ -157,4 +156,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default PharmLogin

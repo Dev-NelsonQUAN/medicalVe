@@ -13,6 +13,7 @@ import SelectionPage from "../pages/Landing/SelectionPage"
 import PharmSignUp from '../pages/auth/PharmSignUp'
 import CheckEmail from '../pages/auth/CheckEmail'
 import ContactPage from '../pages/Landing/ContactPage'
+import Verification from '../pages/auth/Verification'
 
 const router = createHashRouter([
     {
@@ -25,7 +26,7 @@ const router = createHashRouter([
     },
     {
         path: "/contact",
-        element: <ContactPage/>
+        element: <ContactPage />
     },
     {
         path: "/sign-up",
@@ -34,6 +35,14 @@ const router = createHashRouter([
     {
         path: "/check-email",
         element: <CheckEmail />
+    },
+    // {
+    //     path: "/verification/verify:token",
+    //     element: <Verification />
+    // },
+    {
+        path: "/verify/:token",
+        element: <Verification />
     },
     {
         path: "/login",
@@ -75,6 +84,13 @@ const router = createHashRouter([
             // }
         ]
 
+    },
+    {
+        path: "*",
+        element: 
+            <div className='flex justify-center items-center'>
+                <h1>MedGet is asking, are you lost?</h1>
+            </div>
     }
 ])
 

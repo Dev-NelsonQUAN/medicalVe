@@ -34,14 +34,14 @@ const SignUp = () => {
   });
 
   const [signUpUser, { isLoading: isSignUpLoading }] = useSignUpUserMutation();
-  const [resendVerificationEmail] = useResendVerificationEmailMutation(); 
+  // const [resendVerificationEmail] = useResendVerificationEmailMutation(); 
 
   const onSubmit = async (data) => {
     setLoading(true);
     try {
       await signUpUser(data).unwrap();
       
-      await resendVerificationEmail({ email: data.email });  
+      // await resendVerificationEmail({ email: data.email });  
       
       Swal.fire({
         title: 'Success!',
@@ -50,9 +50,10 @@ const SignUp = () => {
         confirmButtonText: 'Okay'
       });
 
-    //   Nav('/check-email');
-      Nav('/login');
+      Nav('/check-email');
+    //   Nav('/login');
     } catch (err) {
+      console.log(err)
       Swal.fire({
         title: 'Error!',
         text: 'Signup failed, Please try again.',
