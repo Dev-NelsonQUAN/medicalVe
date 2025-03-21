@@ -30,7 +30,4 @@ const PharmacyDashboardHeader = () => {
     );
 };
 
-    
-}
-
 export default UserDashboardHeader
