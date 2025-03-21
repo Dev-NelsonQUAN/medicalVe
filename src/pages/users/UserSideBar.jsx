@@ -11,7 +11,7 @@ import {
 import { GiMedicines } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
-const UserSideBar = () => {
+const PharmacySideBar = () => {
     const sideBarData = [
         {
             title: 'Dashboard',
@@ -79,4 +79,4 @@ const UserSideBar = () => {
     )
 }
 
-export default UserSideBar
+export default PharmacySideBar
