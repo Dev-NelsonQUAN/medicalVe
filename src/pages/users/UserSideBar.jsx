@@ -25,18 +25,18 @@ const PharmacySideBar = () => {
         }, {
             title: 'Medicines',
             icon: <GiMedicines />,
-            link: '/userDashboard/users',
+            link: '/userDashboard/medicines',
         },
-        {
-            title: 'Reports',
-            icon: <FaChartLine />,
-            link: '/userDashboard/reports',
-        },
-        {
-            title: 'Audit Logs',
-            icon: <FaClipboardList />,
-            link: '/userDashboard/auditlogs',
-        },
+        // {
+        //     title: 'Reports',
+        //     icon: <FaChartLine />,
+        //     link: '/userDashboard/reports',
+        // },
+        // {
+        //     title: 'Audit Logs',
+        //     icon: <FaClipboardList />,
+        //     link: '/userDashboard/auditlogs',
+        // },
         {
             title: 'Hospitals',
             icon: <FaHospital />,
