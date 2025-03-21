@@ -6,7 +6,6 @@ import AdminDashboard from '../layout/AdminDashboardLayout'
 import DashboardHome from '../components/DashboardHome'
 import Users from '../pages/admin/Users';
 import Pharmacies from '../pages/admin/Pharmacies';
-import UserLayout from '../pages/users'
 import UserDashboardHome from '../pages/users/UserDashboardHome'
 import LandingPage from "../pages/Landing/LandingPage"
 import SelectionPage from "../pages/Landing/SelectionPage"
@@ -14,6 +13,9 @@ import PharmSignUp from '../pages/auth/PharmSignUp'
 import CheckEmail from '../pages/auth/CheckEmail'
 import ContactPage from '../pages/Landing/ContactPage'
 import Verification from '../pages/auth/Verification'
+import UserLayout from '../pages/users/Dashboard'
+import UserDashboardSetting from '../pages/users/UserDashboardSetting'
+import UserdashboardMedicine from '../pages/users/UserdashboardMedicine'
 
 const router = createHashRouter([
     {
@@ -78,6 +80,14 @@ const router = createHashRouter([
                 path: 'home',
                 element: <UserDashboardHome />
             },
+            {
+                path: "medicine",
+                element: <UserdashboardMedicine />
+            },
+            {
+                path: "settings",
+                element: <UserDashboardSetting />
+            }
             // {
             //     path: 'drugs',
             //     element: 
