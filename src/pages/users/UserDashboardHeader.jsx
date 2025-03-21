@@ -2,7 +2,7 @@ import React from 'react';
 import { CgProfile } from 'react-icons/cg';
 import { useSelector } from 'react-redux'; 
 
-const UserDashboardHeader = () => {
+const PharmacyDashboardHeader = () => {
     const user = useSelector((state) => state.medGet.user); 
     let firstName = '';
 
@@ -30,4 +30,7 @@ const UserDashboardHeader = () => {
     );
 };
 
-export default UserDashboardHeader;
+    
+}
+
+export default UserDashboardHeader

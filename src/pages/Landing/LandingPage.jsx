@@ -14,7 +14,7 @@ import {
 import FeatureCard from "../../ui/FeatureCard";
 import CTAButton from "../../ui/CTAButton";
 import MissionItem from "../../ui/missionPros";
-import aboutImg from "../../assets/2006.i126.016..pharmacy.jpg";
+import aboutImg from "../../assets/Adobe Express - file.png";
 import missionPht1 from "../../assets/43715.jpg";
 import missionPht2 from "../../assets/433.jpg";
 import missionPht3 from "../../assets/43715.jpg";
@@ -102,7 +102,7 @@ const LandingPage = () => {
 
       <section
         id="hero"
-        className="bg-blue-700 text-white py-24 px-4 mt-16 flex flex-col md:flex-row items-center justify-between"
+        className="bg-white text-blue-700 py-24 px-4 mt-16 flex flex-col md:flex-row items-center justify-between"
       >
         {/* Text Content */}
         <div className="text-center md:text-left md:w-1/2">
@@ -116,7 +116,7 @@ const LandingPage = () => {
             <CTAButton
               text="Get Started"
               onClick={() => Nav("/selection")}
-              className="border border-white text-white hover:bg-white hover:text-blue-700"
+              className="border border-blue-700 text-blue-700 hover:bg-blue-600 hover:text-white"
             />
           </div>
         </div>
@@ -130,13 +130,13 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section id="about" className="py-16 px-6 bg-white">
+      <section id="about" className="py-16 px-6 bg-white-400">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-1/2">
             <img
               src={aboutImg}
               alt="About MedicalVe"
-              className="w-full rounded-lg shadow-lg"
+              className="w-full rounded-lg"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">

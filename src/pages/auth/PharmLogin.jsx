@@ -9,12 +9,14 @@ import loginSvg from '../../assets/doctorvector.png'
 import { FaEye, FaEyeSlash } from 'react-icons/fa6'
 import Spinner from '../../ui/Spinner'
 import Swal from 'sweetalert2';
+import { useLoginPharmacyMutation } from '../../service/PharmacyRTK'
+
 
 
 const PharmLogin = () => {
     const Nav = useNavigate()
-    const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
+    const [loginPharmacy, { isLoading }] = useLoginPharmacyMutation();
 
     const validationSchema = Yup.object().shape({
         email: Yup.string().email('Invalid email format').required('Email is required'),
@@ -26,28 +28,25 @@ const PharmLogin = () => {
     })
 
     const onSubmit = async (data) => {
-        setLoading(true)
         try {
-            await new Promise((resolve) => setTimeout(resolve, 1000))
+            const res = await loginPharmacy(data).unwrap();
+            
             Swal.fire({
                 title: 'Login Successful!',
                 text: 'Welcome back!',
                 icon: 'success',
                 confirmButtonText: 'OK'
             });
-            console.log(data)
-            Nav('/userDashboard/home')
+            console.log(res)
+            Nav('/pharmacydashboard')
         }
         catch (err) {
             Swal.fire({
                 title: 'Login Failed!',
-                text: 'Invalid username or password.',
+                text:   err?.data?.message ||'Invalid username or password.',
                 icon: 'error',
                 confirmButtonText: 'Try Again'
             });
-        }
-        finally {
-            setLoading(false)
         }
     }
 
@@ -135,7 +134,7 @@ const PharmLogin = () => {
 
                     <Btn
                         type='submit'
-                        btnText={loading ? <><Spinner size='1.5em' color='white' borderWidth='0.3em' /></> : "Login"}
+                        btnText={isLoading ? <><Spinner size='1.5em' color='white' borderWidth='0.3em' /></> : "Login"}
                         bg='bg-blue-600'
                         color='text-white'
                         px='lg:px-45 max-[576px]:px-30 max-[321px]:px-25'
@@ -143,7 +142,7 @@ const PharmLogin = () => {
                         py='py-2.5'
                         mt='mt-8'
                         hoverBg='hover:bg-blue-700'
-                        disabled={loading}
+                        disabled={isLoading}
                     // bg='bg-primary'
                     />
 

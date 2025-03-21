@@ -1,18 +1,24 @@
 import React from 'react'
-import { createHashRouter } from 'react-router-dom'
+import { createHashRouter, } from 'react-router-dom'
 import SignUp from '../pages/auth/SignUp'
 import Login from '../pages/auth/Login'
 import AdminDashboard from '../layout/AdminDashboardLayout'
+import PharmacyDashboard from '../layout/PharmacyDashboardLayout'
+import PharmacyDashboardHome from '../pages/pharmacy/PharmacyDashboardHome'
 import DashboardHome from '../components/DashboardHome'
+import AddMedicine from "../pages/pharmacy/outlet/Addmedicine"
+import MedicineList from "../pages/pharmacy/outlet/MedicineList"
 import Users from '../pages/admin/Users';
 import Pharmacies from '../pages/admin/Pharmacies';
 import UserDashboardHome from '../pages/users/UserDashboardHome'
 import LandingPage from "../pages/Landing/LandingPage"
 import SelectionPage from "../pages/Landing/SelectionPage"
 import PharmSignUp from '../pages/auth/PharmSignUp'
+import PharmLogin from '../pages/auth/PharmLogin'
 import CheckEmail from '../pages/auth/CheckEmail'
 import ContactPage from '../pages/Landing/ContactPage'
 import Verification from '../pages/auth/Verification'
+import PharmacyVerification from '../pages/auth/PharmacyEmailVerify'
 import UserLayout from '../pages/users/Dashboard'
 import UserDashboardSetting from '../pages/users/UserDashboardSetting'
 import UserdashboardMedicine from '../pages/users/UserdashboardMedicine'
@@ -55,6 +61,14 @@ const router = createHashRouter([
         element: <PharmSignUp />
     },
     {
+        path: '/pharmacyVerification/:token',
+        element: <PharmacyVerification/>
+    },
+    {
+        path: '/pharmacy-login',
+        element: <PharmLogin/>
+    },
+    {
         path: "/adminDash",
         element: <AdminDashboard />,
         children: [
@@ -94,6 +108,24 @@ const router = createHashRouter([
             // }
         ]
 
+    },
+    {
+        path: "/pharmacydashboard",
+        element: <PharmacyDashboard/>,
+        children: [
+            {
+                path: "homes",
+                element : <PharmacyDashboardHome/>
+            },
+            {
+                path: "add",
+                element: <AddMedicine/>
+            },
+            {
+                path: 'view',
+                element: <MedicineList/>
+            }
+        ]
     },
     {
         path: "*",
